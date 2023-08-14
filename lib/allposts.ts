@@ -1,11 +1,11 @@
 import { error } from "console"
-
+import axios from "axios"
 
 export default async function fetchAllPosts(){
-    const result = await fetch('http://127.0.0.1:8000/api/',{next:{revalidate:60}})
-
-    if(!result.ok){
-        throw new Error("Failed to fetch data")
-    }
-    return result.json()
+   try {
+    const res = await axios.get('http://127.0.0.1:8000/api/')
+    return res.data
+   } catch (error) {
+     console.error('you got an err:', error)
+   }
 }
