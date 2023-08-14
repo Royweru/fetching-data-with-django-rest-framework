@@ -2,7 +2,7 @@ import React from 'react'
 import fetchAllPosts from '../../../lib/allposts'
 const  Cards = async() => {
     const allposts:Promise<[]> = fetchAllPosts()
-    const blogs:any[] = await allposts
+    const blogs:post[] = await allposts
 
   return (
    <div>
@@ -11,6 +11,7 @@ const  Cards = async() => {
         <h1>
             {blog.title}
         </h1>
+        
        </>
     ))}
    </div>
